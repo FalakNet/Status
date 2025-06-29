@@ -84,18 +84,53 @@ const toLogin = useDebounce(
   justify-content: center;
   width: 100%;
   height: 100%;
+  padding: 20px;
+  
+  @media (max-width: 480px) {
+    padding: 15px;
+  }
+  
   .login-content {
     max-width: 480px;
     width: 100%;
     margin: 0 20px;
     border-radius: 12px;
+    
+    @media (max-width: 768px) {
+      max-width: 400px;
+      margin: 0 15px;
+    }
+    
+    @media (max-width: 480px) {
+      max-width: 100%;
+      margin: 0;
+      border-radius: 8px;
+    }
+    
     .n-alert {
       margin-bottom: 20px;
       text-align: center;
+      
+      @media (max-width: 480px) {
+        margin-bottom: 15px;
+        font-size: 14px;
+      }
     }
+    
     .n-button {
       width: 100%;
       margin-top: 20px;
+      
+      @media (max-width: 480px) {
+        margin-top: 15px;
+        height: 40px;
+      }
+    }
+    
+    :deep(.n-input) {
+      @media (max-width: 480px) {
+        --n-height: 40px;
+      }
     }
   }
 }

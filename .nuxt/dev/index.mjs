@@ -1,42 +1,42 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, getResponseStatus, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, getCookie, setCookie, getResponseStatusText } from 'file:///workspaces/site-status/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, getResponseStatus, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, getCookie, setCookie, setHeader, getResponseStatusText } from 'file:///workspaces/Status/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///workspaces/site-status/node_modules/@vue/shared/dist/shared.cjs.js';
-import dayjs from 'file:///workspaces/site-status/node_modules/dayjs/dayjs.min.js';
-import { LRUCache } from 'file:///workspaces/site-status/node_modules/lru-cache/dist/esm/index.js';
-import SHA256 from 'file:///workspaces/site-status/node_modules/crypto-js/sha256.js';
-import * as jose from 'file:///workspaces/site-status/node_modules/jose/dist/node/esm/index.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///workspaces/site-status/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import destr, { destr as destr$1 } from 'file:///workspaces/site-status/node_modules/destr/dist/index.mjs';
-import { renderToString } from 'file:///workspaces/site-status/node_modules/vue/server-renderer/index.mjs';
-import { createHooks } from 'file:///workspaces/site-status/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///workspaces/site-status/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///workspaces/site-status/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///workspaces/site-status/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///workspaces/site-status/node_modules/unstorage/drivers/fs.mjs';
-import { digest, hash as hash$1 } from 'file:///workspaces/site-status/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///workspaces/site-status/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///workspaces/site-status/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///workspaces/site-status/node_modules/scule/dist/index.mjs';
-import { getContext } from 'file:///workspaces/site-status/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///workspaces/site-status/node_modules/radix3/dist/index.mjs';
+import { escapeHtml } from 'file:///workspaces/Status/node_modules/@vue/shared/dist/shared.cjs.js';
+import dayjs from 'file:///workspaces/Status/node_modules/dayjs/dayjs.min.js';
+import { LRUCache } from 'file:///workspaces/Status/node_modules/lru-cache/dist/esm/index.js';
+import SHA256 from 'file:///workspaces/Status/node_modules/crypto-js/sha256.js';
+import * as jose from 'file:///workspaces/Status/node_modules/jose/dist/node/esm/index.js';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///workspaces/Status/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import destr, { destr as destr$1 } from 'file:///workspaces/Status/node_modules/destr/dist/index.mjs';
+import { renderToString } from 'file:///workspaces/Status/node_modules/vue/server-renderer/index.mjs';
+import { createHooks } from 'file:///workspaces/Status/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file:///workspaces/Status/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///workspaces/Status/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///workspaces/Status/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///workspaces/Status/node_modules/unstorage/drivers/fs.mjs';
+import { digest, hash as hash$1 } from 'file:///workspaces/Status/node_modules/ohash/dist/index.mjs';
+import { klona } from 'file:///workspaces/Status/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///workspaces/Status/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///workspaces/Status/node_modules/scule/dist/index.mjs';
+import { getContext } from 'file:///workspaces/Status/node_modules/unctx/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file:///workspaces/Status/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///workspaces/site-status/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///workspaces/site-status/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///workspaces/site-status/node_modules/nitropack/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///workspaces/site-status/node_modules/nitropack/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file:///workspaces/Status/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file:///workspaces/Status/node_modules/youch-core/build/index.js';
+import { Youch } from 'file:///workspaces/Status/node_modules/nitropack/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file:///workspaces/Status/node_modules/nitropack/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///workspaces/site-status/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///workspaces/site-status/node_modules/errx/dist/index.js';
-import { isVNode, toValue, isRef } from 'file:///workspaces/site-status/node_modules/vue/index.mjs';
-import { basename } from 'file:///workspaces/site-status/node_modules/pathe/dist/index.mjs';
-import { getIcons } from 'file:///workspaces/site-status/node_modules/@iconify/utils/lib/index.mjs';
-import { collections } from 'file:///workspaces/site-status/.nuxt/nuxt-icon-server-bundle.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///workspaces/site-status/node_modules/unhead/dist/server.mjs';
-import { walkResolver } from 'file:///workspaces/site-status/node_modules/unhead/dist/utils.mjs';
+import { stringify, uneval } from 'file:///workspaces/Status/node_modules/devalue/index.js';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///workspaces/Status/node_modules/errx/dist/index.js';
+import { isVNode, toValue, isRef } from 'file:///workspaces/Status/node_modules/vue/index.mjs';
+import { basename } from 'file:///workspaces/Status/node_modules/pathe/dist/index.mjs';
+import { getIcons } from 'file:///workspaces/Status/node_modules/@iconify/utils/lib/index.mjs';
+import { collections } from 'file:///workspaces/Status/.nuxt/nuxt-icon-server-bundle.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///workspaces/Status/node_modules/unhead/dist/server.mjs';
+import { walkResolver } from 'file:///workspaces/Status/node_modules/unhead/dist/utils.mjs';
 
 const HASH_RE = /#/g;
 const AMPERSAND_RE = /&/g;
@@ -278,7 +278,7 @@ function stringifyParsedURL(parsed) {
   return proto + auth + host + pathname + search + hash;
 }
 
-const serverAssets = [{"baseName":"server","dir":"/workspaces/site-status/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/workspaces/Status/server/assets"}];
 
 const assets = createStorage();
 
@@ -290,11 +290,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/workspaces/site-status","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/workspaces/site-status/server","watchOptions":{"ignored":[null]}}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/workspaces/site-status/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/workspaces/site-status/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/workspaces/site-status/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/workspaces/Status","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/workspaces/Status/server","watchOptions":{"ignored":[null]}}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/workspaces/Status/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/workspaces/Status/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/workspaces/Status/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -1089,11 +1089,11 @@ const _inlineRuntimeConfig = {
   },
   "public": {
     "siteTitle": "Falak.io",
-    "siteDescription": "a simple site-status pages, power by uptimerobot",
+    "siteDescription": "A simple site-status pages",
     "siteKeywords": "站点监测,监测,监控",
     "siteLogo": "/favicon.ico",
     "siteIcp": "",
-    "countDays": 60,
+    "countDays": 30,
     "showLink": true,
     "platform": "auto",
     "version": "2.0.0",
@@ -1512,17 +1512,17 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _1A7Io9R0s40f1e0Hh3Dw_5XqJ3fBeMZpelA_qUjKvjM = (function(nitro) {
+const _QsdWsIE2j_lVwwHFSX2aLNSMcqXVUrYZEPO6Q19ftiA = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script$1}<\/script>`);
   });
 });
 
-const rootDir = "/workspaces/site-status";
+const rootDir = "/workspaces/Status";
 
 const appRootAttrs = {"id":"nuxt-app"};
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"description","content":"a simple site-status pages, power by uptimerobot"},{"name":"keywords","content":"站点监测,监测,监控"},{"name":"viewport","content":"width=device-width, initial-scale=1.0"},{"name":"theme-color","content":"#ffffff"}],"link":[{"rel":"icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","href":"/images/icons/normal/apple-touch-icon-180x180.png","sizes":"180x180"},{"rel":"mask-icon","href":"/images/icons/normal/maskable-icon-512x512.png","color":"#ffffff"}],"style":[],"script":[],"noscript":[],"title":"Falak.io","htmlAttrs":{"lang":"en"}};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"description","content":"A simple site-status pages"},{"name":"keywords","content":"站点监测,监测,监控"},{"name":"viewport","content":"width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"},{"name":"theme-color","content":"#7f8c8d"}],"link":[{"rel":"icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","href":"/images/icons/normal/apple-touch-icon-180x180.png","sizes":"180x180"},{"rel":"mask-icon","href":"/images/icons/normal/maskable-icon-512x512.png","color":"#ffffff"},{"rel":"manifest","href":"/api/manifest"}],"style":[],"script":[],"noscript":[],"title":"Falak.io","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
@@ -1541,7 +1541,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : void 0
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _Dr3nnvYYjeUqn06KbsaXUjCO99p5Vvh96oOfmuJ1NB0 = (nitroApp) => {
+const _x8IDpbCjC47SpxCZ6dutMZPdwbyd0iRAE8stVbnsEc = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -1612,19 +1612,19 @@ function onConsoleLog(callback) {
 
 const script = "\"use strict\";(()=>{const t=window,e=document.documentElement,c=[\"dark\",\"light\"],n=getStorageValue(\"localStorage\",\"nuxt-color-mode\")||\"system\";let i=n===\"system\"?u():n;const r=e.getAttribute(\"data-color-mode-forced\");r&&(i=r),l(i),t[\"__NUXT_COLOR_MODE__\"]={preference:n,value:i,getColorScheme:u,addColorScheme:l,removeColorScheme:d};function l(o){const s=\"\"+o+\"-mode\",a=\"\";e.classList?e.classList.add(s):e.className+=\" \"+s,a&&e.setAttribute(\"data-\"+a,o)}function d(o){const s=\"\"+o+\"-mode\",a=\"\";e.classList?e.classList.remove(s):e.className=e.className.replace(new RegExp(s,\"g\"),\"\"),a&&e.removeAttribute(\"data-\"+a)}function f(o){return t.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function u(){if(t.matchMedia&&f(\"\").media!==\"not all\"){for(const o of c)if(f(\":\"+o).matches)return o}return\"light\"}})();function getStorageValue(t,e){switch(t){case\"localStorage\":return window.localStorage.getItem(e);case\"sessionStorage\":return window.sessionStorage.getItem(e);case\"cookie\":return getCookie(e);default:return null}}function getCookie(t){const c=(\"; \"+window.document.cookie).split(\"; \"+t+\"=\");if(c.length===2)return c.pop()?.split(\";\").shift()}";
 
-const _Ua2gwYvrLS2_HXrtgmEHb7N7qPl6ffH3F6897BMVBE = (function(nitro) {
+const _xWcyOWf50VucDF_HnKAOlcdvqCrs8338wGhG2lVDNwI = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
 const plugins = [
-  _1A7Io9R0s40f1e0Hh3Dw_5XqJ3fBeMZpelA_qUjKvjM,
-_Dr3nnvYYjeUqn06KbsaXUjCO99p5Vvh96oOfmuJ1NB0,
-_Ua2gwYvrLS2_HXrtgmEHb7N7qPl6ffH3F6897BMVBE
+  _QsdWsIE2j_lVwwHFSX2aLNSMcqXVUrYZEPO6Q19ftiA,
+_x8IDpbCjC47SpxCZ6dutMZPdwbyd0iRAE8stVbnsEc,
+_xWcyOWf50VucDF_HnKAOlcdvqCrs8338wGhG2lVDNwI
 ];
 
-const _PI2XoF = defineEventHandler((event) => {
+const _5xwylr = defineEventHandler((event) => {
   const referer = event.node.req.headers.referer;
   const url = event.node.req.url;
   if (!referer && (url == null ? void 0 : url.startsWith("/api"))) {
@@ -1745,7 +1745,7 @@ const verifyJwt = async (token) => {
 
 const warnOnceSet = /* @__PURE__ */ new Set();
 const DEFAULT_ENDPOINT = "https://api.iconify.design";
-const _jeIbr0 = defineCachedEventHandler(async (event) => {
+const _ZDcDl7 = defineCachedEventHandler(async (event) => {
   const url = getRequestURL(event);
   if (!url)
     return createError({ status: 400, message: "Invalid icon request" });
@@ -1861,7 +1861,7 @@ function setSSRError(ssrContext, error) {
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
 const getServerEntry = () => Promise.resolve().then(function () { return server$1; }).then((r) => r.default || r);
-const getClientManifest = () => import('file:///workspaces/site-status/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getClientManifest = () => import('file:///workspaces/Status/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {
@@ -2111,22 +2111,24 @@ async function getIslandContext(event) {
   return ctx;
 }
 
-const _lazy_W8i2Ho = () => Promise.resolve().then(function () { return check_post$1; });
-const _lazy_MkXzAw = () => Promise.resolve().then(function () { return getMonitors_post$1; });
-const _lazy_e4FeNc = () => Promise.resolve().then(function () { return logout_post$1; });
-const _lazy_5zUVv8 = () => Promise.resolve().then(function () { return verify_post$1; });
-const _lazy_RATC4q = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_vxzKL9 = () => Promise.resolve().then(function () { return check_post$1; });
+const _lazy_j9i6jR = () => Promise.resolve().then(function () { return getMonitors_post$1; });
+const _lazy_SDfM8w = () => Promise.resolve().then(function () { return logout_post$1; });
+const _lazy_PBjM32 = () => Promise.resolve().then(function () { return manifest_get$1; });
+const _lazy_Dtkm0G = () => Promise.resolve().then(function () { return verify_post$1; });
+const _lazy_olESAZ = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '', handler: _PI2XoF, lazy: false, middleware: true, method: undefined },
-  { route: '/api/check', handler: _lazy_W8i2Ho, lazy: true, middleware: false, method: "post" },
-  { route: '/api/getMonitors', handler: _lazy_MkXzAw, lazy: true, middleware: false, method: "post" },
-  { route: '/api/logout', handler: _lazy_e4FeNc, lazy: true, middleware: false, method: "post" },
-  { route: '/api/verify', handler: _lazy_5zUVv8, lazy: true, middleware: false, method: "post" },
-  { route: '/__nuxt_error', handler: _lazy_RATC4q, lazy: true, middleware: false, method: undefined },
-  { route: '/api/_nuxt_icon/:collection', handler: _jeIbr0, lazy: false, middleware: false, method: undefined },
+  { route: '', handler: _5xwylr, lazy: false, middleware: true, method: undefined },
+  { route: '/api/check', handler: _lazy_vxzKL9, lazy: true, middleware: false, method: "post" },
+  { route: '/api/getMonitors', handler: _lazy_j9i6jR, lazy: true, middleware: false, method: "post" },
+  { route: '/api/logout', handler: _lazy_SDfM8w, lazy: true, middleware: false, method: "post" },
+  { route: '/api/manifest', handler: _lazy_PBjM32, lazy: true, middleware: false, method: "get" },
+  { route: '/api/verify', handler: _lazy_Dtkm0G, lazy: true, middleware: false, method: "post" },
+  { route: '/__nuxt_error', handler: _lazy_olESAZ, lazy: true, middleware: false, method: undefined },
+  { route: '/api/_nuxt_icon/:collection', handler: _ZDcDl7, lazy: false, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_RATC4q, lazy: true, middleware: false, method: undefined }
+  { route: '/**', handler: _lazy_olESAZ, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -2608,6 +2610,76 @@ const logout_post = eventHandler(
 const logout_post$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: logout_post
+});
+
+const manifest_get = defineEventHandler(async (event) => {
+  const config = useRuntimeConfig();
+  const { siteTitle, siteDescription } = config.public;
+  const cacheKey = "site-data";
+  const cachedData = getCache(cacheKey);
+  let themeColor = "#128771";
+  let backgroundColor = "#128771";
+  let iconPath = "normal";
+  if (cachedData == null ? void 0 : cachedData.status) {
+    const { status } = cachedData;
+    if (status.count === status.ok) {
+      themeColor = "#128771";
+      backgroundColor = "#128771";
+      iconPath = "normal";
+    } else if (status.count === status.error || status.error === status.count) {
+      themeColor = "#ef4444";
+      backgroundColor = "#ef4444";
+      iconPath = "error";
+    } else if (status.error > 0 || status.unknown > 0) {
+      themeColor = "#eab308";
+      backgroundColor = "#eab308";
+      iconPath = "normal";
+    }
+  } else {
+    themeColor = "#128771";
+    backgroundColor = "#128771";
+    iconPath = "normal";
+  }
+  const manifest = {
+    name: siteTitle,
+    short_name: siteDescription,
+    description: siteDescription,
+    start_url: "/",
+    display: "standalone",
+    background_color: backgroundColor,
+    theme_color: themeColor,
+    icons: [
+      {
+        src: `/images/icons/${iconPath}/pwa-64x64.png`,
+        sizes: "64x64",
+        type: "image/png"
+      },
+      {
+        src: `/images/icons/${iconPath}/pwa-192x192.png`,
+        sizes: "192x192",
+        type: "image/png"
+      },
+      {
+        src: `/images/icons/${iconPath}/pwa-512x512.png`,
+        sizes: "512x512",
+        type: "image/png"
+      },
+      {
+        src: `/images/icons/${iconPath}/maskable-icon-512x512.png`,
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable"
+      }
+    ]
+  };
+  setHeader(event, "Content-Type", "application/manifest+json");
+  setHeader(event, "Cache-Control", "public, max-age=300");
+  return manifest;
+});
+
+const manifest_get$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: manifest_get
 });
 
 const verify_post = defineEventHandler(

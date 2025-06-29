@@ -10,8 +10,8 @@
         hoverable
       >
         <!-- 信息 -->
-        <n-flex class="meta" justify="space-between">
-          <n-flex :size="8" class="title" align="center">
+        <n-flex class="meta" justify="space-between" :wrap="false">
+          <n-flex :size="8" class="title" align="center" :wrap="false">
             <n-text class="site-name">{{ site.name }}</n-text>
             <n-popover>
               <template #trigger>
@@ -44,10 +44,11 @@
             }"
             class="status"
             align="center"
+            :wrap="false"
           >
             <div v-if="site.status !== 0" class="point" />
             <Icon v-else name="icon:pause" />
-            <n-text>{{ siteStatusMap[site.status]?.text }}</n-text>
+            <n-text class="status-text">{{ siteStatusMap[site.status]?.text }}</n-text>
           </n-flex>
         </n-flex>
         <!-- 每日数据 -->
@@ -85,14 +86,14 @@
           </n-popover>
         </n-flex>
         <!-- 总结 -->
-        <n-flex class="summary" justify="space-between">
+        <n-flex class="summary" justify="space-between" :wrap="false">
           <n-text class="date" depth="3">
             {{ formatTime(site?.days?.[0]?.date || 0) }}
           </n-text>
-          <n-text v-if="site?.down?.times" depth="3">
+          <n-text v-if="site?.down?.times" class="summary-text" depth="3">
             Failed {{ site?.down?.times }} times in the last {{ site?.days?.length }} days, total downtime {{ formatDuration(site?.down?.duration) }}, average availability {{ site?.percent }}%
           </n-text>
-          <n-text v-else depth="3">
+          <n-text v-else class="summary-text" depth="3">
             Availability in the last {{ site?.days?.length }} days {{ site?.percent }}%
           </n-text>
           <n-text class="date" depth="3">Today</n-text>
@@ -182,27 +183,114 @@ onMounted(getSiteData);
   max-width: 900px;
   margin: 30px auto 20px;
   padding: 0 20px;
+  
+  @media (max-width: 768px) {
+    margin: 20px auto 15px;
+    padding: 0 15px;
+    gap: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    margin: 15px auto 10px;
+    padding: 0 12px;
+    gap: 8px;
+  }
+  
   .site-item {
     opacity: 0;
     border-radius: 12px;
     animation: float-up 0.5s forwards;
     overflow: hidden;
+    
+    @media (max-width: 480px) {
+      border-radius: 8px;
+    }
+    
     .meta {
+      margin-bottom: 12px;
+      
+      @media (max-width: 768px) {
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      
+      @media (max-width: 480px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      
+      .title {
+        flex: 1;
+        min-width: 0;
+        
+        @media (max-width: 480px) {
+          width: 100%;
+          flex-wrap: wrap;
+        }
+      }
+      
       .site-name {
         font-weight: bold;
+        
+        @media (max-width: 768px) {
+          font-size: 14px;
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 13px;
+          word-break: break-word;
+        }
       }
+      
       .n-tag {
         --n-height: 20px;
         cursor: pointer;
-      }
-      .status {
-        .n-text {
-          color: var(--bg-color);
+        
+        @media (max-width: 768px) {
+          --n-height: 18px;
+          font-size: 11px;
         }
+        
+        @media (max-width: 480px) {
+          --n-height: 16px;
+          font-size: 10px;
+        }
+      }
+      
+      .status {
+        flex-shrink: 0;
+        
+        @media (max-width: 480px) {
+          align-self: flex-start;
+        }
+        
+        .status-text {
+          color: var(--bg-color);
+          
+          @media (max-width: 768px) {
+            font-size: 12px;
+          }
+          
+          @media (max-width: 480px) {
+            font-size: 11px;
+          }
+        }
+        
         svg {
           font-size: 22px;
           margin-right: -4px;
           color: var(--bg-color);
+          
+          @media (max-width: 768px) {
+            font-size: 20px;
+          }
+          
+          @media (max-width: 480px) {
+            font-size: 18px;
+          }
         }
       }
       .point {
@@ -212,6 +300,19 @@ onMounted(getSiteData);
         min-width: 14px;
         background-color: var(--bg-color);
         border-radius: 50%;
+        
+        @media (max-width: 768px) {
+          width: 12px;
+          height: 12px;
+          min-width: 12px;
+        }
+        
+        @media (max-width: 480px) {
+          width: 10px;
+          height: 10px;
+          min-width: 10px;
+        }
+        
         &::after {
           content: "";
           background-color: var(--bg-color);
@@ -230,6 +331,15 @@ onMounted(getSiteData);
     }
     .timeline {
       margin: 15px 0 10px;
+      
+      @media (max-width: 768px) {
+        margin: 12px 0 8px;
+      }
+      
+      @media (max-width: 480px) {
+        margin: 10px 0 6px;
+      }
+      
       .day {
         height: 26px;
         flex: 1;
@@ -238,20 +348,85 @@ onMounted(getSiteData);
         transition: transform 0.3s;
         transform-origin: bottom;
         cursor: pointer;
+        
+        @media (max-width: 768px) {
+          height: 24px;
+        }
+        
+        @media (max-width: 480px) {
+          height: 20px;
+          border-radius: 20px;
+        }
+        
         &:hover {
           transform: scale(1.1);
+          
+          @media (max-width: 480px) {
+            transform: scale(1.05);
+          }
         }
       }
     }
     .summary {
+      @media (max-width: 768px) {
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      
+      @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+      }
+      
       .date {
         width: 100px;
+        
+        @media (max-width: 768px) {
+          width: 80px;
+          font-size: 11px;
+        }
+        
+        @media (max-width: 480px) {
+          width: auto;
+          font-size: 10px;
+          text-align: center;
+        }
+        
         &:last-child {
           text-align: right;
+          
+          @media (max-width: 480px) {
+            text-align: center;
+          }
         }
       }
+      
+      .summary-text {
+        font-size: 13px;
+        flex: 1;
+        text-align: center;
+        
+        @media (max-width: 768px) {
+          font-size: 11px;
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 10px;
+          line-height: 1.3;
+        }
+      }
+      
       .n-text {
         font-size: 13px;
+        
+        @media (max-width: 768px) {
+          font-size: 11px;
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 10px;
+        }
       }
     }
   }

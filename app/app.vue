@@ -35,6 +35,9 @@ const statusStore = useStatusStore();
 
 const { setLocale } = useI18n();
 
+// Initialize dynamic theme color management
+useThemeColor();
+
 // 加载状态
 const siteLoaded = ref<boolean>(false);
 

@@ -7,12 +7,12 @@
     "module": true,
     "resourceType": "script"
   },
-  "/workspaces/site-status/node_modules/nuxt/dist/app/entry.js": {
+  "/workspaces/Status/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "isEntry": true,
-    "file": "/workspaces/site-status/node_modules/nuxt/dist/app/entry.js"
+    "file": "/workspaces/Status/node_modules/nuxt/dist/app/entry.js"
   }
 }

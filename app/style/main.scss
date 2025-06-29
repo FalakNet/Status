@@ -34,11 +34,31 @@
   -webkit-user-drag: none;
 }
 
+html {
+  font-size: 16px;
+  
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+}
+
 body {
   width: 100%;
   height: 100%;
   background-color: var(--main-bg-color);
   overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: padding-top 0.3s ease;
+  
+  &.header-scrolled {
+    padding-top: 80px;
+  }
 }
 
 #nuxt-app {
@@ -58,4 +78,54 @@ body {
 
 .n-back-top {
   z-index: 9999;
+}
+
+// 移动端触摸优化
+@media (hover: none) and (pointer: coarse) {
+  // 增加可触摸区域
+  .n-button {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  .n-tag {
+    min-height: 32px !important;
+  }
+  
+  // 移除hover效果
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .site-item:hover {
+    transform: none !important;
+  }
+  
+  .day:hover {
+    transform: none !important;
+  }
+}
+
+// 防止在移动设备上出现水平滚动
+.n-scrollbar-content {
+  overflow-x: hidden !important;
+}
+
+// 优化移动端表单
+@media (max-width: 480px) {
+  .n-input {
+    font-size: 16px !important; // 防止iOS缩放
+  }
+  
+  .n-button {
+    font-size: 14px !important;
+  }
+}
+
+// 改善移动端文本可读性
+@media (max-width: 768px) {
+  body {
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+  }
 }

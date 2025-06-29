@@ -12,6 +12,9 @@ declare module "nitropack/types" {
     '/api/logout': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/logout.post').default>>>>
     }
+    '/api/manifest': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/manifest.get').default>>>>
+    }
     '/api/verify': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/verify.post').default>>>>
     }

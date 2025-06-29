@@ -1,7 +1,7 @@
 {
-  "_hash": "88YAYKkA6k-QlgwXDP8TjIwckBfyjBUvbXL9fwL_97U",
+  "_hash": "Au7_MYO6Jvv1dA5KQWzFOotcDAEFcLX44_uUq5iZQT0",
   "project": {
-    "rootDir": "/workspaces/site-status"
+    "rootDir": "/workspaces/Status"
   },
   "versions": {
     "nuxt": "3.17.5"

@@ -61,3 +61,101 @@
     transform: translateY(0);
   }
 }
+
+// 移动端优化动画
+@media (max-width: 768px) {
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  @keyframes float-up {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes breathing {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.15s ease-in-out;
+  }
+  
+  @keyframes float-up {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes breathing {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-60px, 0, 0);
+    }
+    100% {
+      transform: translate3d(60px, 0, 0);
+    }
+  }
+}
+
+// 减少动画在低性能设备上的影响
+@media (prefers-reduced-motion: reduce) {
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: none;
+  }
+  
+  @keyframes float-up {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes breathing {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes move-forever {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}

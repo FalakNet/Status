@@ -53,11 +53,11 @@ export default defineNuxtConfig({
         },
         {
           name: "viewport",
-          content: "width=device-width, initial-scale=1.0",
+          content: "width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes",
         },
         {
           name: "theme-color",
-          content: "#ffffff",
+          content: "#7f8c8d", // Default gray, will be updated dynamically
         },
       ],
       link: [
@@ -73,12 +73,10 @@ export default defineNuxtConfig({
           color: "#ffffff",
         },
         // manifest
-        process.env.NODE_ENV !== "development"
-          ? {
-              rel: "manifest",
-              href: "/manifest.webmanifest",
-            }
-          : undefined,
+        {
+          rel: "manifest",
+          href: process.env.NODE_ENV !== "development" ? "/api/manifest" : "/api/manifest",
+        },
       ],
       htmlAttrs: {
         lang: "en",
@@ -151,34 +149,10 @@ export default defineNuxtConfig({
   },
   // pwa
   pwa: {
-    manifest: {
-      name: siteConfig.siteTitle,
-      short_name: siteConfig.siteDescription,
-      description: siteConfig.siteDescription,
-      theme_color: "#ffffff",
-      icons: [
-        {
-          src: "/images/icons/normal/pwa-64x64.png",
-          sizes: "64x64",
-          type: "image/png",
-        },
-        {
-          src: "/images/icons/normal/pwa-192x192.png",
-          sizes: "192x192",
-          type: "image/png",
-        },
-        {
-          src: "/images/icons/normal/pwa-512x512.png",
-          sizes: "512x512",
-          type: "image/png",
-        },
-        {
-          src: "/images/icons/normal/maskable-icon-512x512.png",
-          sizes: "512x512",
-          type: "image/png",
-          purpose: "maskable",
-        },
-      ],
+    disable: process.env.NODE_ENV === "development",
+    manifest: false, // Disable static manifest, use dynamic one
+    workbox: {
+      navigateFallback: null,
     },
   },
 });
